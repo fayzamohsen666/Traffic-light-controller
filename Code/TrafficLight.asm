@@ -312,11 +312,13 @@ L__automatic63:
 L_automatic18:
 ;TrafficLight.c,86 :: 		}
 L_automatic16:
-;TrafficLight.c,88 :: 		lights(1);
+;TrafficLight.c,88 :: 		flag = 0;
+	CLRF       _flag+0
+;TrafficLight.c,90 :: 		lights(1);
 	MOVLW      1
 	MOVWF      FARG_lights_config+0
 	CALL       _lights+0
-;TrafficLight.c,89 :: 		for (i = 12; i > 0; i--) {
+;TrafficLight.c,91 :: 		for (i = 12; i > 0; i--) {
 	MOVLW      12
 	MOVWF      automatic_i_L0+0
 	MOVLW      0
@@ -334,14 +336,14 @@ L_automatic20:
 L__automatic64:
 	BTFSC      STATUS+0, 0
 	GOTO       L_automatic21
-;TrafficLight.c,90 :: 		if (mode == manu) return;
+;TrafficLight.c,92 :: 		if (mode == manu) return;
 	MOVF       _mode+0, 0
 	XORLW      1
 	BTFSS      STATUS+0, 2
 	GOTO       L_automatic23
 	GOTO       L_end_automatic
 L_automatic23:
-;TrafficLight.c,91 :: 		display(i + 3, i);
+;TrafficLight.c,93 :: 		display(i + 3, i);
 	MOVLW      3
 	ADDWF      automatic_i_L0+0, 0
 	MOVWF      FARG_display_wNumber+0
@@ -354,19 +356,19 @@ L_automatic23:
 	MOVF       automatic_i_L0+1, 0
 	MOVWF      FARG_display_sNumber+1
 	CALL       _display+0
-;TrafficLight.c,89 :: 		for (i = 12; i > 0; i--) {
+;TrafficLight.c,91 :: 		for (i = 12; i > 0; i--) {
 	MOVLW      1
 	SUBWF      automatic_i_L0+0, 1
 	BTFSS      STATUS+0, 0
 	DECF       automatic_i_L0+1, 1
-;TrafficLight.c,92 :: 		}
+;TrafficLight.c,94 :: 		}
 	GOTO       L_automatic20
 L_automatic21:
-;TrafficLight.c,94 :: 		lights(3);
+;TrafficLight.c,96 :: 		lights(3);
 	MOVLW      3
 	MOVWF      FARG_lights_config+0
 	CALL       _lights+0
-;TrafficLight.c,95 :: 		for (i = 3; i > 0; i--) {
+;TrafficLight.c,97 :: 		for (i = 3; i > 0; i--) {
 	MOVLW      3
 	MOVWF      automatic_i_L0+0
 	MOVLW      0
@@ -384,14 +386,14 @@ L_automatic24:
 L__automatic65:
 	BTFSC      STATUS+0, 0
 	GOTO       L_automatic25
-;TrafficLight.c,96 :: 		if (mode == manu) return;
+;TrafficLight.c,98 :: 		if (mode == manu) return;
 	MOVF       _mode+0, 0
 	XORLW      1
 	BTFSS      STATUS+0, 2
 	GOTO       L_automatic27
 	GOTO       L_end_automatic
 L_automatic27:
-;TrafficLight.c,97 :: 		display(i, i);
+;TrafficLight.c,99 :: 		display(i, i);
 	MOVF       automatic_i_L0+0, 0
 	MOVWF      FARG_display_wNumber+0
 	MOVF       automatic_i_L0+1, 0
@@ -401,21 +403,21 @@ L_automatic27:
 	MOVF       automatic_i_L0+1, 0
 	MOVWF      FARG_display_sNumber+1
 	CALL       _display+0
-;TrafficLight.c,95 :: 		for (i = 3; i > 0; i--) {
+;TrafficLight.c,97 :: 		for (i = 3; i > 0; i--) {
 	MOVLW      1
 	SUBWF      automatic_i_L0+0, 1
 	BTFSS      STATUS+0, 0
 	DECF       automatic_i_L0+1, 1
-;TrafficLight.c,98 :: 		}
+;TrafficLight.c,100 :: 		}
 	GOTO       L_automatic24
 L_automatic25:
-;TrafficLight.c,100 :: 		flag = 1;
+;TrafficLight.c,102 :: 		flag = 1;
 	MOVLW      1
 	MOVWF      _flag+0
-;TrafficLight.c,102 :: 		lights(0);
+;TrafficLight.c,104 :: 		lights(0);
 	CLRF       FARG_lights_config+0
 	CALL       _lights+0
-;TrafficLight.c,103 :: 		for (i = 20; i > 0; i--) {
+;TrafficLight.c,105 :: 		for (i = 20; i > 0; i--) {
 	MOVLW      20
 	MOVWF      automatic_i_L0+0
 	MOVLW      0
@@ -433,14 +435,14 @@ L_automatic28:
 L__automatic66:
 	BTFSC      STATUS+0, 0
 	GOTO       L_automatic29
-;TrafficLight.c,104 :: 		if (mode == manu) return;
+;TrafficLight.c,106 :: 		if (mode == manu) return;
 	MOVF       _mode+0, 0
 	XORLW      1
 	BTFSS      STATUS+0, 2
 	GOTO       L_automatic31
 	GOTO       L_end_automatic
 L_automatic31:
-;TrafficLight.c,105 :: 		display(i, i + 3);
+;TrafficLight.c,107 :: 		display(i, i + 3);
 	MOVF       automatic_i_L0+0, 0
 	MOVWF      FARG_display_wNumber+0
 	MOVF       automatic_i_L0+1, 0
@@ -453,19 +455,19 @@ L_automatic31:
 	ADDLW      1
 	MOVWF      FARG_display_sNumber+1
 	CALL       _display+0
-;TrafficLight.c,103 :: 		for (i = 20; i > 0; i--) {
+;TrafficLight.c,105 :: 		for (i = 20; i > 0; i--) {
 	MOVLW      1
 	SUBWF      automatic_i_L0+0, 1
 	BTFSS      STATUS+0, 0
 	DECF       automatic_i_L0+1, 1
-;TrafficLight.c,106 :: 		}
+;TrafficLight.c,108 :: 		}
 	GOTO       L_automatic28
 L_automatic29:
-;TrafficLight.c,108 :: 		lights(2);
+;TrafficLight.c,110 :: 		lights(2);
 	MOVLW      2
 	MOVWF      FARG_lights_config+0
 	CALL       _lights+0
-;TrafficLight.c,109 :: 		for (i = 3; i > 0; i--) {
+;TrafficLight.c,111 :: 		for (i = 3; i > 0; i--) {
 	MOVLW      3
 	MOVWF      automatic_i_L0+0
 	MOVLW      0
@@ -483,14 +485,14 @@ L_automatic32:
 L__automatic67:
 	BTFSC      STATUS+0, 0
 	GOTO       L_automatic33
-;TrafficLight.c,110 :: 		if (mode == manu) return;
+;TrafficLight.c,112 :: 		if (mode == manu) return;
 	MOVF       _mode+0, 0
 	XORLW      1
 	BTFSS      STATUS+0, 2
 	GOTO       L_automatic35
 	GOTO       L_end_automatic
 L_automatic35:
-;TrafficLight.c,111 :: 		display(i, i);
+;TrafficLight.c,113 :: 		display(i, i);
 	MOVF       automatic_i_L0+0, 0
 	MOVWF      FARG_display_wNumber+0
 	MOVF       automatic_i_L0+1, 0
@@ -500,52 +502,52 @@ L_automatic35:
 	MOVF       automatic_i_L0+1, 0
 	MOVWF      FARG_display_sNumber+1
 	CALL       _display+0
-;TrafficLight.c,109 :: 		for (i = 3; i > 0; i--) {
+;TrafficLight.c,111 :: 		for (i = 3; i > 0; i--) {
 	MOVLW      1
 	SUBWF      automatic_i_L0+0, 1
 	BTFSS      STATUS+0, 0
 	DECF       automatic_i_L0+1, 1
-;TrafficLight.c,112 :: 		}
+;TrafficLight.c,114 :: 		}
 	GOTO       L_automatic32
 L_automatic33:
-;TrafficLight.c,113 :: 		}
+;TrafficLight.c,115 :: 		}
 L_end_automatic:
 	RETURN
 ; end of _automatic
 
 _manual:
 
-;TrafficLight.c,116 :: 		void manual() {
-;TrafficLight.c,119 :: 		if (flag) {
+;TrafficLight.c,118 :: 		void manual() {
+;TrafficLight.c,121 :: 		if (flag) {
 	MOVF       _flag+0, 0
 	BTFSC      STATUS+0, 2
 	GOTO       L_manual36
-;TrafficLight.c,120 :: 		flag = 0;
+;TrafficLight.c,122 :: 		flag = 0;
 	CLRF       _flag+0
-;TrafficLight.c,121 :: 		l1 = 1; l2 = 0;
+;TrafficLight.c,123 :: 		l1 = 1; l2 = 0;
 	BSF        PORTB+0, 4
 	BCF        PORTB+0, 5
-;TrafficLight.c,122 :: 		portc = 0;
+;TrafficLight.c,124 :: 		portc = 0;
 	CLRF       PORTC+0
-;TrafficLight.c,123 :: 		lights(0);
+;TrafficLight.c,125 :: 		lights(0);
 	CLRF       FARG_lights_config+0
 	CALL       _lights+0
-;TrafficLight.c,124 :: 		} else {
+;TrafficLight.c,126 :: 		} else {
 	GOTO       L_manual37
 L_manual36:
-;TrafficLight.c,125 :: 		if (direction == west) {
+;TrafficLight.c,127 :: 		if (direction == west) {
 	MOVF       _direction+0, 0
 	XORLW      0
 	BTFSS      STATUS+0, 2
 	GOTO       L_manual38
-;TrafficLight.c,126 :: 		l1 = 1; l2 = 0;
+;TrafficLight.c,128 :: 		l1 = 1; l2 = 0;
 	BSF        PORTB+0, 4
 	BCF        PORTB+0, 5
-;TrafficLight.c,127 :: 		lights(3);
+;TrafficLight.c,129 :: 		lights(3);
 	MOVLW      3
 	MOVWF      FARG_lights_config+0
 	CALL       _lights+0
-;TrafficLight.c,128 :: 		for (i = 3; i > 0; i--)
+;TrafficLight.c,130 :: 		for (i = 3; i > 0; i--)
 	MOVLW      3
 	MOVWF      manual_i_L0+0
 	MOVLW      0
@@ -563,7 +565,7 @@ L_manual39:
 L__manual69:
 	BTFSC      STATUS+0, 0
 	GOTO       L_manual40
-;TrafficLight.c,129 :: 		display(0, i);
+;TrafficLight.c,131 :: 		display(0, i);
 	CLRF       FARG_display_wNumber+0
 	CLRF       FARG_display_wNumber+1
 	MOVF       manual_i_L0+0, 0
@@ -571,28 +573,28 @@ L__manual69:
 	MOVF       manual_i_L0+1, 0
 	MOVWF      FARG_display_sNumber+1
 	CALL       _display+0
-;TrafficLight.c,128 :: 		for (i = 3; i > 0; i--)
+;TrafficLight.c,130 :: 		for (i = 3; i > 0; i--)
 	MOVLW      1
 	SUBWF      manual_i_L0+0, 1
 	BTFSS      STATUS+0, 0
 	DECF       manual_i_L0+1, 1
-;TrafficLight.c,129 :: 		display(0, i);
+;TrafficLight.c,131 :: 		display(0, i);
 	GOTO       L_manual39
 L_manual40:
-;TrafficLight.c,130 :: 		lights(0);
+;TrafficLight.c,132 :: 		lights(0);
 	CLRF       FARG_lights_config+0
 	CALL       _lights+0
-;TrafficLight.c,131 :: 		} else {
+;TrafficLight.c,133 :: 		} else {
 	GOTO       L_manual42
 L_manual38:
-;TrafficLight.c,132 :: 		l1 = 0; l2 = 1;
+;TrafficLight.c,134 :: 		l1 = 0; l2 = 1;
 	BCF        PORTB+0, 4
 	BSF        PORTB+0, 5
-;TrafficLight.c,133 :: 		lights(2);
+;TrafficLight.c,135 :: 		lights(2);
 	MOVLW      2
 	MOVWF      FARG_lights_config+0
 	CALL       _lights+0
-;TrafficLight.c,134 :: 		for (i = 3; i > 0; i--)
+;TrafficLight.c,136 :: 		for (i = 3; i > 0; i--)
 	MOVLW      3
 	MOVWF      manual_i_L0+0
 	MOVLW      0
@@ -610,7 +612,7 @@ L_manual43:
 L__manual70:
 	BTFSC      STATUS+0, 0
 	GOTO       L_manual44
-;TrafficLight.c,135 :: 		display(i, 0);
+;TrafficLight.c,137 :: 		display(i, 0);
 	MOVF       manual_i_L0+0, 0
 	MOVWF      FARG_display_wNumber+0
 	MOVF       manual_i_L0+1, 0
@@ -618,32 +620,32 @@ L__manual70:
 	CLRF       FARG_display_sNumber+0
 	CLRF       FARG_display_sNumber+1
 	CALL       _display+0
-;TrafficLight.c,134 :: 		for (i = 3; i > 0; i--)
+;TrafficLight.c,136 :: 		for (i = 3; i > 0; i--)
 	MOVLW      1
 	SUBWF      manual_i_L0+0, 1
 	BTFSS      STATUS+0, 0
 	DECF       manual_i_L0+1, 1
-;TrafficLight.c,135 :: 		display(i, 0);
+;TrafficLight.c,137 :: 		display(i, 0);
 	GOTO       L_manual43
 L_manual44:
-;TrafficLight.c,136 :: 		lights(1);
+;TrafficLight.c,138 :: 		lights(1);
 	MOVLW      1
 	MOVWF      FARG_lights_config+0
 	CALL       _lights+0
-;TrafficLight.c,137 :: 		}
+;TrafficLight.c,139 :: 		}
 L_manual42:
-;TrafficLight.c,138 :: 		}
+;TrafficLight.c,140 :: 		}
 L_manual37:
-;TrafficLight.c,140 :: 		u = 0; t = 0;
+;TrafficLight.c,142 :: 		u = 0; t = 0;
 	BCF        PORTB+0, 2
 	BCF        PORTB+0, 3
-;TrafficLight.c,141 :: 		direction = !direction;
+;TrafficLight.c,143 :: 		direction = !direction;
 	MOVF       _direction+0, 0
 	MOVLW      1
 	BTFSS      STATUS+0, 2
 	MOVLW      0
 	MOVWF      _direction+0
-;TrafficLight.c,143 :: 		while (dir == OFF && mode == manu); // Wait in manual mode
+;TrafficLight.c,145 :: 		while (dir == OFF && mode == manu); // Wait in manual mode
 L_manual46:
 	BTFSS      PORTB+0, 1
 	GOTO       L_manual47
@@ -654,7 +656,7 @@ L_manual46:
 L__manual51:
 	GOTO       L_manual46
 L_manual47:
-;TrafficLight.c,144 :: 		}
+;TrafficLight.c,146 :: 		}
 L_end_manual:
 	RETURN
 ; end of _manual
@@ -668,21 +670,21 @@ _interrupt:
 	MOVWF      ___savePCLATH+0
 	CLRF       PCLATH+0
 
-;TrafficLight.c,147 :: 		void interrupt() {
-;TrafficLight.c,148 :: 		if (intf_bit) {
+;TrafficLight.c,149 :: 		void interrupt() {
+;TrafficLight.c,150 :: 		if (intf_bit) {
 	BTFSS      INTF_bit+0, BitPos(INTF_bit+0)
 	GOTO       L_interrupt50
-;TrafficLight.c,149 :: 		intf_bit = 0;
+;TrafficLight.c,151 :: 		intf_bit = 0;
 	BCF        INTF_bit+0, BitPos(INTF_bit+0)
-;TrafficLight.c,150 :: 		mode = !mode;
+;TrafficLight.c,152 :: 		mode = !mode;
 	MOVF       _mode+0, 0
 	MOVLW      1
 	BTFSS      STATUS+0, 2
 	MOVLW      0
 	MOVWF      _mode+0
-;TrafficLight.c,151 :: 		}
+;TrafficLight.c,153 :: 		}
 L_interrupt50:
-;TrafficLight.c,152 :: 		}
+;TrafficLight.c,154 :: 		}
 L_end_interrupt:
 L__interrupt72:
 	MOVF       ___savePCLATH+0, 0

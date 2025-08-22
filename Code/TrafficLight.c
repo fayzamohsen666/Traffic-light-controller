@@ -84,7 +84,9 @@ void automatic() {
         for (i = 3; i > 0; i--)
             display(i, 0);
     }
-
+    
+    flag = 0;
+    
     lights(1);
     for (i = 12; i > 0; i--) {
         if (mode == manu) return;

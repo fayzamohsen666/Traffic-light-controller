@@ -1,5 +1,5 @@
-#line 1 "C:/Users/fayza/Desktop/TrafficLight/Final/4/Code/TrafficLight.c"
-#line 19 "C:/Users/fayza/Desktop/TrafficLight/Final/4/Code/TrafficLight.c"
+#line 1 "C:/Users/fayza/Desktop/TrafficLight/Final/Traffic-light-controller/Code/TrafficLight.c"
+#line 19 "C:/Users/fayza/Desktop/TrafficLight/Final/Traffic-light-controller/Code/TrafficLight.c"
 char mode = 0;
 char direction = 0;
 char flag = 0;
@@ -68,6 +68,8 @@ void automatic() {
  for (i = 3; i > 0; i--)
  display(i, 0);
  }
+
+ flag = 0;
 
  lights(1);
  for (i = 12; i > 0; i--) {
